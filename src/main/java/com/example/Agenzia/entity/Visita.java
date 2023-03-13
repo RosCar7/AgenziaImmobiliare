@@ -26,6 +26,12 @@ public class Visita {
     @Basic
     @Column
     private LocalDate data;
+    @ManyToOne
+    @JoinColumn(name = "idCliente", nullable = false)
+    private Cliente cliente;
+    @ManyToOne
+    @JoinColumn(name = "idProprieta", nullable = false)
+    private Proprieta proprieta;
     @CreatedDate
     @Column
     private Timestamp dataCreazione;

@@ -6,6 +6,8 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @ToString
 @EqualsAndHashCode
@@ -37,6 +39,8 @@ public class Agenzia {
     @Version
     @Column
     private int versione;
+    @OneToMany(mappedBy = "agenzia", fetch = FetchType.LAZY)
+    private List<Proprieta> listaProprieta = new ArrayList<>();
 
 
 

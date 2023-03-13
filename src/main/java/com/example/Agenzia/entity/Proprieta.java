@@ -6,6 +6,8 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.List;
 
 @ToString
 @EqualsAndHashCode
@@ -31,6 +33,14 @@ public class Proprieta {
     @Basic
     @Column
     private double prezzo;
+    @ManyToOne
+    @JoinColumn(name = "idAgenzia", nullable = true)
+    private Agenzia agenzia;
+    @OneToMany(mappedBy = "proprieta", fetch = FetchType.LAZY)
+    private List<Transazione> listaTransazioni = new ArrayList<>();
+    @OneToMany(mappedBy = "proprieta", fetch = FetchType.LAZY)
+    private List<Visita> listaVisite = new ArrayList<>();
+
     @CreatedDate
     @Column
     private Timestamp dataCreazione;
@@ -40,6 +50,5 @@ public class Proprieta {
     @Version
     @Column
     private int versione;
-
 
 }

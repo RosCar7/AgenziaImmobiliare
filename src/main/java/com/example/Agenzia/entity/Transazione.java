@@ -7,6 +7,8 @@ import org.springframework.data.annotation.LastModifiedDate;
 
 import java.sql.Timestamp;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 @ToString
 @EqualsAndHashCode
@@ -29,6 +31,12 @@ public class Transazione {
     @Basic
     @Column
     private String descrizione;
+    @ManyToOne
+    @JoinColumn(name = "idCliente", nullable = false)
+    private Cliente cliente;
+    @ManyToOne
+    @JoinColumn(name = "idProprieta", nullable = false)
+    private Proprieta proprieta;
     @CreatedDate
     @Column
     private Timestamp dataCreazione;
@@ -38,5 +46,6 @@ public class Transazione {
     @Version
     @Column
     private int versione;
+
 
 }
