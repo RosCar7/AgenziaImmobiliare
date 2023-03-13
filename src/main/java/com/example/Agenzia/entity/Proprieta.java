@@ -41,4 +41,5 @@ public class Proprieta {
     @Column
     private int versione;
 
+
 }
