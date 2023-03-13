@@ -6,6 +6,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.sql.Timestamp;
+import java.time.LocalDate;
 
 @ToString
 @EqualsAndHashCode
@@ -22,6 +23,9 @@ public class Transazione {
     @Basic
     @Column
     private double importo;
+    @Basic
+    @Column
+    private LocalDate data;
     @Basic
     @Column
     private String descrizione;
