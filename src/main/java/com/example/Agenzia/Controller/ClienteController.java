@@ -89,11 +89,11 @@ public class ClienteController {
         }
     }
 
-    @PutMapping("/{id}/{nome}/{cognome}/{email}/{telefono}/{indirizzo}")
-    public ResponseEntity<Cliente> updateCliente(@PathVariable Long id,
+    @PutMapping("/{id_cliente}/{nome}/{cognome}/{email}/{telefono}/{indirizzo}")
+    public ResponseEntity<Cliente> updateCliente(@PathVariable Long id_cliente,
                                                        @PathVariable String nome, @PathVariable String cognome
                                                         , @PathVariable String email, @PathVariable String telefono, @PathVariable String indirizzo){
-        Optional<Cliente> existingCliente = clienteService.findById(id);
+        Optional<Cliente> existingCliente = clienteService.findById(id_cliente);
         try {
             if(existingCliente.isPresent()){
                 Cliente cliente = existingCliente.get();

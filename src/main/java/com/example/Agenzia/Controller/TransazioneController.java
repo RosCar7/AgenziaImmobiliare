@@ -12,14 +12,14 @@ import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.Optional;
 
-@RequestMapping
+@RequestMapping("/transazione")
 @RestController
 public class TransazioneController {
     @Autowired
     TransazioneService transazioneService;
 
     @GetMapping("/{id}")
-    public ResponseEntity<Transazione> getTransazioneById(@PathVariable Long id){
+    public ResponseEntity<Transazione> getTransazioneByIde(@PathVariable Long id){
         Optional<Transazione> existingTransazione = transazioneService.findById(id);
         try {
             if(existingTransazione.isPresent()){

@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import java.sql.Timestamp;
 import java.util.Optional;
 
-@RequestMapping
+@RequestMapping("/proprieta")
 @RestController
 public class ProprietaController {
 

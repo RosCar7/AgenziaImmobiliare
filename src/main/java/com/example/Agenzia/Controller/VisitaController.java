@@ -12,7 +12,7 @@ import java.sql.Timestamp;
 import java.time.LocalDate;
 import java.util.Optional;
 
-@RequestMapping
+@RequestMapping("/visita")
 @RestController
 public class VisitaController {
     @Autowired
