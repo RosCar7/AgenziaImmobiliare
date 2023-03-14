@@ -51,7 +51,7 @@ public class AgenziaController {
 
     @PutMapping("/{id}/{nome}/{telefono}/{indirizzo}")
     public ResponseEntity<Agenzia> updateAgenzia(@PathVariable Long id,
-                                                 @PathVariable String nome, @PathVariable int telefono, @PathVariable String indirizzo){
+                                                 @PathVariable String nome, @PathVariable String telefono, @PathVariable String indirizzo){
         Optional<Agenzia> existingAgenzia = agenziaService.findById(id);
         try {
             if(existingAgenzia.isPresent()){
