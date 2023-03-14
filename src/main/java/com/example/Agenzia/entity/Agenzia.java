@@ -19,8 +19,8 @@ import java.util.List;
 public class Agenzia {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
-    private Long id;
+    @Column(nullable = false)
+    private Long id_agenzia;
     @Basic
     @Column
     private String nome;
@@ -29,7 +29,7 @@ public class Agenzia {
     private String indirizzo;
     @Basic
     @Column
-    private int telefono;
+    private String telefono;
     @CreatedDate
     @Column
     private Timestamp dataCreazione;

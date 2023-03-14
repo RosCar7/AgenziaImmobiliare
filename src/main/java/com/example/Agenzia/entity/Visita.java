@@ -18,19 +18,19 @@ import java.time.LocalDate;
 public class Visita {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
-    private Long id;
+    @Column(nullable = false)
+    private Long id_visita;
     @Basic
     @Column
-    private double durata;
+    private int durata;
     @Basic
     @Column
     private LocalDate data;
     @ManyToOne
-    @JoinColumn(name = "idCliente", nullable = false)
+    @JoinColumn(name = "id_cliente", nullable = false)
     private Cliente cliente;
     @ManyToOne
-    @JoinColumn(name = "idProprieta", nullable = false)
+    @JoinColumn(name = "id_proprieta", nullable = false)
     private Proprieta proprieta;
     @CreatedDate
     @Column

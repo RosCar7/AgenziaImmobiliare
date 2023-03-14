@@ -19,17 +19,17 @@ import java.util.List;
 public class Proprieta {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
-    private Long id;
+    @Column(nullable = false)
+    private Long id_proprieta;
     @Basic
     @Column
     private String indirizzo;
     @Basic
     @Column
-    private String tipoDiProprieta;
+    private String tipo;
     @Basic
     @Column
-    private int numeroDiStanze;
+    private int stanze;
     @Basic
     @Column
     private double prezzo;

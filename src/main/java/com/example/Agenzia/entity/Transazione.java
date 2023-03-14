@@ -20,8 +20,8 @@ import java.util.List;
 public class Transazione {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    @Column(name = "id", nullable = false)
-    private Long id;
+    @Column(nullable = false)
+    private Long id_transazione;
     @Basic
     @Column
     private double importo;
@@ -32,10 +32,10 @@ public class Transazione {
     @Column
     private String descrizione;
     @ManyToOne
-    @JoinColumn(name = "idCliente", nullable = false)
+    @JoinColumn(name = "id_cliente", nullable = false)
     private Cliente cliente;
     @ManyToOne
-    @JoinColumn(name = "idProprieta", nullable = false)
+    @JoinColumn(name = "id_proprieta", nullable = false)
     private Proprieta proprieta;
     @CreatedDate
     @Column
