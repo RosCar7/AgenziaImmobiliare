@@ -3,6 +3,7 @@ package com.example.Agenzia.Controller;
 import com.example.Agenzia.dto.ClienteDTO;
 import com.example.Agenzia.entity.Cliente;
 import com.example.Agenzia.service.ClienteService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -21,7 +22,7 @@ public class ClienteController {
 
     @Autowired
     private ClienteService clienteService;
-    private Modelmapper mapper;
+    private ModelMapper mapper= new ModelMapper();
 
     /*@GetMapping
     public ResponseEntity<List<ClienteDTO>> getAllClienti() {
