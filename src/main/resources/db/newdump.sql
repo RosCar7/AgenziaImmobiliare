@@ -23,11 +23,14 @@ DROP TABLE IF EXISTS `agenzia`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `agenzia` (
-  `id_agenzia` int NOT NULL AUTO_INCREMENT,
+  `id` bigint NOT NULL AUTO_INCREMENT,
   `nome` varchar(45) NOT NULL,
   `indirizzo` varchar(45) NOT NULL,
   `telefono` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_agenzia`)
+  `dataCreazione` timestamp NOT NULL,
+  `dataUltimaModifica` timestamp NOT NULL,
+  `versione` int NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -48,13 +51,16 @@ DROP TABLE IF EXISTS `cliente`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `cliente` (
-  `id_cliente` int NOT NULL AUTO_INCREMENT,
+  `id` bigint NOT NULL,
   `nome` varchar(45) NOT NULL,
   `cognome` varchar(45) NOT NULL,
   `email` varchar(45) NOT NULL,
   `telefono` varchar(45) NOT NULL,
   `indirizzo` varchar(45) NOT NULL,
-  PRIMARY KEY (`id_cliente`)
+  `dataCreazione` timestamp NOT NULL,
+  `dataUltimaModifica` timestamp NOT NULL,
+  `versione` int NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -68,30 +74,33 @@ LOCK TABLES `cliente` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `proprietà`
+-- Table structure for table `proprieta`
 --
 
-DROP TABLE IF EXISTS `proprietà`;
+DROP TABLE IF EXISTS `proprieta`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
-CREATE TABLE `proprietà` (
-  `id_proprietà` int NOT NULL AUTO_INCREMENT,
+CREATE TABLE `proprieta` (
+  `id` bigint NOT NULL AUTO_INCREMENT,
   `indirizzo` varchar(45) NOT NULL,
   `tipo` varchar(45) NOT NULL,
   `stanze` int NOT NULL,
   `prezzo` decimal(10,2) NOT NULL,
-  `agenzia_id` int NOT NULL,
-  PRIMARY KEY (`id_proprietà`)
+  `id_agenzia` bigint NOT NULL,
+  `dataCreazione` timestamp NOT NULL,
+  `dataUltimaModifica` timestamp NOT NULL,
+  `versione` int NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `proprietà`
+-- Dumping data for table `proprieta`
 --
 
-LOCK TABLES `proprietà` WRITE;
-/*!40000 ALTER TABLE `proprietà` DISABLE KEYS */;
-/*!40000 ALTER TABLE `proprietà` ENABLE KEYS */;
+LOCK TABLES `proprieta` WRITE;
+/*!40000 ALTER TABLE `proprieta` DISABLE KEYS */;
+/*!40000 ALTER TABLE `proprieta` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -102,13 +111,16 @@ DROP TABLE IF EXISTS `transazione`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `transazione` (
-  `id_transazione` int NOT NULL AUTO_INCREMENT,
+  `id` bigint NOT NULL AUTO_INCREMENT,
   `data` date NOT NULL,
   `importo` decimal(10,2) NOT NULL,
   `descrizione` varchar(45) NOT NULL,
-  `id_cliente` int NOT NULL,
-  `id_proprietà` int NOT NULL,
-  PRIMARY KEY (`id_transazione`)
+  `id_cliente` bigint NOT NULL,
+  `id_proprietà` bigint NOT NULL,
+  `dataCreazione` timestamp NOT NULL,
+  `dataUltimaModifica` timestamp NOT NULL,
+  `versione` int NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -129,12 +141,15 @@ DROP TABLE IF EXISTS `visita`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!50503 SET character_set_client = utf8mb4 */;
 CREATE TABLE `visita` (
-  `id_visita` int NOT NULL AUTO_INCREMENT,
+  `id` bigint NOT NULL AUTO_INCREMENT,
   `data` date NOT NULL,
   `durata` int NOT NULL,
-  `id_cliente` int NOT NULL,
-  `id_proprietà` int DEFAULT NULL,
-  PRIMARY KEY (`id_visita`)
+  `id_cliente` bigint NOT NULL,
+  `id_proprietà` bigint NOT NULL,
+  `dataCreazione` timestamp NOT NULL,
+  `dataUltimaModifica` timestamp NOT NULL,
+  `versione` int NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -156,4 +171,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-03-13 14:59:09
+-- Dump completed on 2023-03-14 15:32:09
