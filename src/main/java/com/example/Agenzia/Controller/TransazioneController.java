@@ -35,7 +35,7 @@ public class TransazioneController {
 
 
     @PostMapping
-    public ResponseEntity<Transazione> insertCliente(@RequestBody Transazione transazione){
+    public ResponseEntity<Transazione> insertTransazione(@RequestBody Transazione transazione){
         try {
             Transazione d = transazioneService.insertTransazione(transazione);
             if(d == null){

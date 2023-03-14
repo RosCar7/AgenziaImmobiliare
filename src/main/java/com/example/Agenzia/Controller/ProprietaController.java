@@ -52,14 +52,14 @@ public class ProprietaController {
 
     @PutMapping("/{id}/{numeroDiStanze}/{tipoDiProprieta}/{prezzo}/{indirizzo}")
     public ResponseEntity<Proprieta> updateProprieta(@PathVariable Long id,
-                                                 @PathVariable String tipoDiProprieta, @PathVariable int numeroDiStanze
+                                                 @PathVariable String tipo, @PathVariable int stanze
            , @PathVariable String indirizzo, @PathVariable double prezzo){
         Optional<Proprieta> existingProprieta = proprietaService.findById(id);
         try {
             if(existingProprieta.isPresent()){
                 Proprieta proprieta = existingProprieta.get();
-                proprieta.setTipoDiProprieta(tipoDiProprieta);
-                proprieta.setNumeroDiStanze(numeroDiStanze);
+                proprieta.setTipo(tipo);
+                proprieta.setStanze(stanze);
                 proprieta.setIndirizzo(indirizzo);
                 proprieta.setPrezzo(prezzo);
                 proprieta.setDataUltimaModifica(new Timestamp(System.currentTimeMillis()));

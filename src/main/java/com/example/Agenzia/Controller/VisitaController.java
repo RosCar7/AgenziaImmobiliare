@@ -49,7 +49,7 @@ public class VisitaController {
 
     @PutMapping("/{id}/{durata}/{data}")
     public ResponseEntity<Visita> updateVisita(@PathVariable Long id,
-                                               @PathVariable double durata, @PathVariable LocalDate data){
+                                               @PathVariable int durata, @PathVariable LocalDate data){
         Optional<Visita> existingVisita = visitaService.findById(id);
         try {
             if(existingVisita.isPresent()){
