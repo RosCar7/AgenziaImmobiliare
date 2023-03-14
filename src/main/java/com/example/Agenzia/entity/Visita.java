@@ -19,7 +19,7 @@ public class Visita {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(nullable = false)
-    private Long id_visita;
+    private Long id;
     @Basic
     @Column
     private int durata;

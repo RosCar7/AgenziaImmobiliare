@@ -79,21 +79,21 @@ public class ClienteController {
     @PostMapping
     public ResponseEntity<Cliente> insertCliente(@RequestBody Cliente cliente){
         try {
-            Cliente d = clienteService.insertCliente(cliente);
-            if(d == null){
+            Cliente c = clienteService.insertCliente(cliente);
+            if(c == null){
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
-            return new ResponseEntity<>(d, HttpStatus.CREATED);
+            return new ResponseEntity<>(c, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
-    @PutMapping("/{id_cliente}/{nome}/{cognome}/{email}/{telefono}/{indirizzo}")
-    public ResponseEntity<Cliente> updateCliente(@PathVariable Long id_cliente,
+    @PutMapping("/{id}/{nome}/{cognome}/{email}/{telefono}/{indirizzo}")
+    public ResponseEntity<Cliente> updateCliente(@PathVariable Long id,
                                                        @PathVariable String nome, @PathVariable String cognome
                                                         , @PathVariable String email, @PathVariable String telefono, @PathVariable String indirizzo){
-        Optional<Cliente> existingCliente = clienteService.findById(id_cliente);
+        Optional<Cliente> existingCliente = clienteService.findById(id);
         try {
             if(existingCliente.isPresent()){
                 Cliente cliente = existingCliente.get();

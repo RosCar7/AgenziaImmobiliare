@@ -20,7 +20,7 @@ public class Agenzia {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(nullable = false)
-    private Long id_agenzia;
+    private Long id;
     @Basic
     @Column
     private String nome;

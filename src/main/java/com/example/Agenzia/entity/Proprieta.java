@@ -20,7 +20,7 @@ public class Proprieta {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(nullable = false)
-    private Long id_proprieta;
+    private Long id;
     @Basic
     @Column
     private String indirizzo;

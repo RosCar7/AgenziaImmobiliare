@@ -39,18 +39,18 @@ public class ProprietaController {
     @PostMapping
     public ResponseEntity<Proprieta> insertProprieta(@RequestBody Proprieta proprieta){
         try {
-            Proprieta d = proprietaService.insertProprieta(proprieta);
-            if(d == null){
+            Proprieta p = proprietaService.insertProprieta(proprieta);
+            if(p == null){
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
-            return new ResponseEntity<>(d, HttpStatus.CREATED);
+            return new ResponseEntity<>(p, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
 
 
-    @PutMapping("/{id}/{numeroDiStanze}/{tipoDiProprieta}/{prezzo}/{indirizzo}")
+    @PutMapping("/{id}/{stanze}/{tipo}/{prezzo}/{indirizzo}")
     public ResponseEntity<Proprieta> updateProprieta(@PathVariable Long id,
                                                  @PathVariable String tipo, @PathVariable int stanze
            , @PathVariable String indirizzo, @PathVariable double prezzo){

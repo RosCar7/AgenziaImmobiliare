@@ -21,7 +21,7 @@ public class Transazione {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(nullable = false)
-    private Long id_transazione;
+    private Long id;
     @Basic
     @Column
     private double importo;

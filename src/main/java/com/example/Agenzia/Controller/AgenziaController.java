@@ -20,9 +20,9 @@ public class AgenziaController {
     private AgenziaService agenziaService;
 
 
-    @GetMapping("/{alemanno}")
-    public ResponseEntity<Agenzia> getAgenziaById(@PathVariable Long alemanno){
-        Optional<Agenzia> existingAgenzia = agenziaService.findById(alemanno);
+    @GetMapping("/{id}")
+    public ResponseEntity<Agenzia> getAgenziaById(@PathVariable Long id){
+        Optional<Agenzia> existingAgenzia = agenziaService.findById(id);
         try {
             if(existingAgenzia.isPresent()){
                 return new ResponseEntity<>(existingAgenzia.get(), HttpStatus.OK);
@@ -49,10 +49,10 @@ public class AgenziaController {
         }
     }
 
-    @PutMapping("/{id_agenzia}/{nome}/{telefono}/{indirizzo}")
-    public ResponseEntity<Agenzia> updateAgenzia(@PathVariable Long id_agenzia,
+    @PutMapping("/{id}/{nome}/{telefono}/{indirizzo}")
+    public ResponseEntity<Agenzia> updateAgenzia(@PathVariable Long id,
                                                  @PathVariable String nome, @PathVariable String telefono, @PathVariable String indirizzo){
-        Optional<Agenzia> existingAgenzia = agenziaService.findById(id_agenzia);
+        Optional<Agenzia> existingAgenzia = agenziaService.findById(id);
         try {
             if(existingAgenzia.isPresent()){
                 Agenzia agenzia = existingAgenzia.get();
@@ -72,9 +72,9 @@ public class AgenziaController {
         }
     }
 
-    @DeleteMapping("/{id_agenzia}")
-    public ResponseEntity<Void> deleteAgenzia(@PathVariable Long id_agenzia){
-        Optional<Agenzia> existingAgenzia = agenziaService.findById(id_agenzia);
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteAgenzia(@PathVariable Long id){
+        Optional<Agenzia> existingAgenzia = agenziaService.findById(id);
         try {
             if(existingAgenzia.isPresent()){
                 agenziaService.delete(existingAgenzia.get());

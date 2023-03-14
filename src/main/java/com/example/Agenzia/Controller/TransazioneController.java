@@ -37,11 +37,11 @@ public class TransazioneController {
     @PostMapping
     public ResponseEntity<Transazione> insertTransazione(@RequestBody Transazione transazione){
         try {
-            Transazione d = transazioneService.insertTransazione(transazione);
-            if(d == null){
+            Transazione t = transazioneService.insertTransazione(transazione);
+            if(t == null){
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
-            return new ResponseEntity<>(d, HttpStatus.CREATED);
+            return new ResponseEntity<>(t, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

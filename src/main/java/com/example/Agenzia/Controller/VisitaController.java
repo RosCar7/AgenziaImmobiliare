@@ -37,11 +37,11 @@ public class VisitaController {
     @PostMapping
     public ResponseEntity<Visita> insertVisita(@RequestBody Visita visita){
         try {
-            Visita d = visitaService.insertVisita(visita);
-            if(d == null){
+            Visita v = visitaService.insertVisita(visita);
+            if(v == null){
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
-            return new ResponseEntity<>(d, HttpStatus.CREATED);
+            return new ResponseEntity<>(v, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

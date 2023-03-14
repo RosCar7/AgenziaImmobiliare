@@ -20,7 +20,7 @@ public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Column(nullable = false)
-    private Long id_cliente;
+    private Long id;
 
     @Basic
     @Column
