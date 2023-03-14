@@ -40,6 +40,7 @@ public class Cliente {
     @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
     private List<Visita> listaVisite = new ArrayList<>();
     @OneToMany(mappedBy = "cliente", fetch = FetchType.LAZY)
+    @JoinColumn(name = "idCliente")
     private List<Transazione> listaTransazioni = new ArrayList<>();
     @CreatedDate
     @Column
