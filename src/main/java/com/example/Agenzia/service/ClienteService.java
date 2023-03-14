@@ -5,6 +5,7 @@ import com.example.Agenzia.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -27,5 +28,9 @@ public class ClienteService {
     public void delete(Cliente cliente) {
         clienteRepository.delete(cliente);
 
+    }
+
+    public List<Cliente> findAll() {
+        return clienteRepository.findAll();
     }
 }

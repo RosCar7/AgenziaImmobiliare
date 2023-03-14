@@ -1,5 +1,6 @@
 package com.example.Agenzia.Controller;
 
+import com.example.Agenzia.dto.ClienteDTO;
 import com.example.Agenzia.entity.Cliente;
 import com.example.Agenzia.service.ClienteService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +9,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 import java.util.Optional;
 
 @RequestMapping("/cliente")
@@ -17,6 +21,44 @@ public class ClienteController {
 
     @Autowired
     private ClienteService clienteService;
+    private Modelmapper mapper;
+
+    /*@GetMapping
+    public ResponseEntity<List<ClienteDTO>> getAllClienti() {
+        try {
+            List<Cliente> clienteList = clienteService.findAll();
+            List<ClienteDTO> clienteDTOList = new ArrayList<>();
+            for (Cliente d : clienteList) {
+                ClienteDTO clienteDTO = Collections.singletonList(mapper.map(d, ClienteDTO.class));
+                clienteDTOList.add(clienteDTO);
+            }
+            if (clienteList.isEmpty()) {
+                return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(clienteDTOList, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }*/
+
+
+
+
+    @GetMapping
+    public ResponseEntity<List<Cliente>> getAllClienti(){
+        try {
+            List<Cliente> clienteList = clienteService.findAll();
+            if(clienteList.isEmpty()){
+                return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(clienteList, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Cliente> getClienteById(@PathVariable Long id){
