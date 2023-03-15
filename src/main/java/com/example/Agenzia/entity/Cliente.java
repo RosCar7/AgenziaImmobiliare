@@ -15,7 +15,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
+@Entity(name = "cliente")
 public class Cliente {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
@@ -43,7 +43,7 @@ public class Cliente {
 
     private List<Transazione> listaTransazioni = new ArrayList<>();
     @CreatedDate
-    @Column
+    @Column(name="dataCreazione")
     private Timestamp dataCreazione;
     @LastModifiedDate
     @Column
